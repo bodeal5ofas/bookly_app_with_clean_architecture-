@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bookly_app/Core/utils/app_routes.dart';
 import 'package:bookly_app/Core/utils/constant.dart';
 import 'package:bookly_app/Features/home/presentation/view/home_view.dart';
 import 'package:flutter/material.dart';
@@ -21,14 +22,14 @@ class _SplashViewState extends State<SplashView>
   void initState() {
     initAnimation();
     navigatorToHome();
- 
+
     super.initState();
   }
 
   @override
   void dispose() {
     animationController.dispose();
-   
+
     super.dispose();
   }
 
@@ -49,9 +50,9 @@ class _SplashViewState extends State<SplashView>
 
   void navigatorToHome() {
     Future.delayed(
-     const Duration(seconds: 5),
+      const Duration(seconds: 5),
       () {
-        Get.to(() => const HomeView(), duration: kDuration);
+        AppRoutes.router.push(AppRoutes.kHomeRoutes);
       },
     );
   }
