@@ -9,17 +9,22 @@ class CustomRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         const Icon(
           Icons.star,
           color: Colors.amber,
         ),
-        const SizedBox(width: 6,),
+        const SizedBox(
+          width: 6,
+        ),
         const Text(
           '4.8',
           style: AppStyles.styleMedium16,
         ),
-         const SizedBox(width: 5,),
+        const SizedBox(
+          width: 5,
+        ),
         Text('(2359)',
             style: AppStyles.styleNormal14.copyWith(
               color: Colors.white.withOpacity(0.5),

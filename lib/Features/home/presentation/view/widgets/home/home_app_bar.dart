@@ -1,5 +1,7 @@
+import 'package:bookly_app/Core/utils/app_routes.dart';
 import 'package:bookly_app/Core/utils/constant.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({super.key});
@@ -16,7 +18,9 @@ class HomeAppBar extends StatelessWidget {
             height: 20,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(AppRoutes.kSearchRoutes);
+            },
             icon: const Icon(
               Icons.search,
               size: 28,
