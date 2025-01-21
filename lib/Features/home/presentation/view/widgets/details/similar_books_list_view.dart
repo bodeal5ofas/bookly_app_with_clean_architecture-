@@ -9,12 +9,12 @@ class SimilarBooksListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-                  itemCount: 10,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) => const Padding(
-    padding: EdgeInsets.all(10.0),
-    child: FeatureListViewIteam(),
-                  ),
-                );
+      itemCount: 10,
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (context, index) => const Padding(
+        padding: EdgeInsets.all(10.0),
+        child: FeatureListViewIteam(),
+      ),
+    );
   }
 }

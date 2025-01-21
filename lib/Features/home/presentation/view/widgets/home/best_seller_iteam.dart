@@ -11,7 +11,7 @@ class BestSellerIteam extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {
+      onTap: () {
         AppRoutes.router.push(AppRoutes.kDetailsRoutes);
       },
       child: Container(
@@ -34,7 +34,7 @@ class BestSellerIteam extends StatelessWidget {
             const SizedBox(
               width: 20,
             ),
-          const  BestSellerIteamBody()
+            const BestSellerIteamBody()
           ],
         ),
       ),

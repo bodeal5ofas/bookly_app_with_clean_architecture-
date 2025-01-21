@@ -7,16 +7,16 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(15.0),
-      child: TextField(
-        decoration: InputDecoration(
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),),),
-                onSubmitted: (value) {
-                  
-                },
+    return TextField(
+      decoration: InputDecoration(
+        hintText: "Search",
+        suffixIcon:
+            IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
       ),
+      onSubmitted: (value) {},
     );
   }
 }
