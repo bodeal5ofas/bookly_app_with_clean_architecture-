@@ -13,33 +13,32 @@ class HomeRepoImpl extends HomeRepo {
   HomeRepoImpl(
       {required this.homeRemoteDataSource, required this.homeLocalDataSource});
   @override
-  Future<Either<Failure, List<BookEntitiy>>> fetchFeaturedBooks() async {
+  Future<Either<Failure, List<BookEntitiy>>> fetchFeaturedBooks({int pageNum=0}) async {
     try {
       List<BookEntitiy> books;
-      books = homeLocalDataSource.fetchFetaredBooks();
+      books = homeLocalDataSource.fetchFetaredBooks(pageNumber: pageNum);
       if (books.isNotEmpty) {
         return Right(books);
       }
-      books = await homeRemoteDataSource.fetchFeaturedBooks();
+      books = await homeRemoteDataSource.fetchFeaturedBooks(pageNum: pageNum);
       return Right(books);
     } catch (e) {
       if (e is DioException) {
         return Left(ServerFailure.fromDioError(e));
       }
-      return Left(
-          ServerFailure(errMessage: 'There is an error, please try again'));
+      return Left(ServerFailure(errMessage: e.toString()));
     }
   }
 
   @override
-  Future<Either<Failure, List<BookEntitiy>>> fetchNewsBooks() async {
+  Future<Either<Failure, List<BookEntitiy>>> fetchNewsBooks({int pagenum=0}) async {
     try {
       List<BookEntitiy> books;
-      books = homeLocalDataSource.fetchNewsBooks();
+      books = homeLocalDataSource.fetchNewsBooks(pageNum: pagenum);
       if (books.isNotEmpty) {
         return Right(books);
       }
-      books = await homeRemoteDataSource.fetchNewsBooks();
+      books = await homeRemoteDataSource.fetchNewsBooks(pageNum: pagenum);
       return Right(books);
     } catch (e) {
       if (e is DioException) {

@@ -15,7 +15,7 @@ class BooksAction extends StatelessWidget {
           Expanded(
             child: CustomButton(
               isPrice: true,
-              title: '\$ 199.99',
+              title: '\$ 00.00',
             ),
           ),
           Expanded(

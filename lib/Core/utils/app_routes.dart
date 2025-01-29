@@ -1,5 +1,6 @@
 import 'package:bookly_app/Core/utils/functions/setup_service_locater.dart';
 import 'package:bookly_app/Features/home/data/repos/home_repo_impl.dart';
+import 'package:bookly_app/Features/home/domain/entities/book_entitiy.dart';
 import 'package:bookly_app/Features/home/domain/use_case/fetch_featured_books_use_case.dart';
 import 'package:bookly_app/Features/home/domain/use_case/fetch_news_books_use_case.dart';
 import 'package:bookly_app/Features/home/presentation/manger/featured_books/featured_books_cubit.dart';
@@ -29,14 +30,14 @@ abstract class AppRoutes {
                 FetchFeaturedBooksUseCase(
                   homeRepo: getIt.get<HomeRepoImpl>(),
                 ),
-              ),
+              )..fetchFeaturedBooks(),
             ),
             BlocProvider(
               create: (context) => NewestBooksCubit(
                 FetchNewsBooksUseCase(
                   getIt.get<HomeRepoImpl>(),
                 ),
-              ),
+              )..fetchNewestBooks(),
             ),
           ],
           child: const HomeView(),
@@ -44,7 +45,10 @@ abstract class AppRoutes {
       ),
       GoRoute(
         path: kDetailsRoutes,
-        builder: (context, state) => const DetailtsView(),
+        builder: (context, state) {
+          BookEntitiy book = state.extra as BookEntitiy;
+          return  DetailtsView(book: book,);
+        },
       ),
     ],
   );

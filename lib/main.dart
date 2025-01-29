@@ -1,9 +1,11 @@
 import 'package:bookly_app/Core/utils/constant.dart';
 import 'package:bookly_app/Core/utils/app_routes.dart';
 import 'package:bookly_app/Core/utils/functions/setup_service_locater.dart';
+import 'package:bookly_app/Core/utils/functions/simple_bloc_observer.dart';
 import 'package:bookly_app/Features/home/domain/entities/book_entitiy.dart';
 //import 'package:bookly_app/Features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 //import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:google_fonts/google_fonts.dart';
 //import 'package:hive/hive.dart';
@@ -15,6 +17,7 @@ void main() async {
   await Hive.openBox<BookEntitiy>(kFeaturedBox);
   await Hive.openBox<BookEntitiy>(kNewsBox);
   setupServiceLocater();
+  Bloc.observer = SimpleBlocObserver();
   runApp(const BooklyApp());
 }
 
